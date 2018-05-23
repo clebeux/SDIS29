@@ -1,0 +1,939 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
+--
+-- Client :  localhost
+-- Généré le :  Jeu 22 Mars 2018 à 14:34
+-- Version du serveur :  10.0.32-MariaDB
+-- Version de PHP :  7.0.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `SDIS29`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `caserne`
+--
+
+CREATE TABLE `caserne` (
+  `CIS_ID` int(11) NOT NULL,
+  `CIS_NOM` varchar(60) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `caserne`
+--
+
+INSERT INTO `caserne` (`CIS_ID`, `CIS_NOM`) VALUES
+(01, 'BREST\r\n'),
+(02, 'CAMARET\r\n'),
+(03, 'CROZON\r\n'),
+(04, 'ILE DE OUESSANT\r\n'),
+(05, 'LANDERNEAU\r\n'),
+(06, 'LANNILIS\r\n'),
+(07, 'LE FAOU\r\n'),
+(08, 'LESNEVEN\r\n'),
+(09, 'PLABENNEC\r\n'),
+(10, 'PLOUDALMEZEAU\r\n'),
+(11, 'PLOUGUERNEAU\r\n'),
+(12, 'SAINT RENAN\r\n'),
+(13, 'CHATEAULIN\r\n'),
+(14, 'CONCARNEAU\r\n'),
+(15, 'BANNALEC\r\n'),
+(16, 'CLOHARS CARNOET\r\n'),
+(17, 'CORAY\r\n'),
+(18, 'ELLIANT\r\n'),
+(19, 'LEUHAN\r\n'),
+(20, 'MELGVEN\r\n'),
+(21, 'MOELAN SUR MER\r\n'),
+(22, 'PONT AVEN\r\n'),
+(23, 'QUERRIEN\r\n'),
+(24, 'QUIMPERLE\r\n'),
+(25, 'RIEC SUR BELON\r\n'),
+(26, 'ROSPORDEN\r\n'),
+(27, 'SAINT THURIEN\r\n'),
+(28, 'SCAER\r\n'),
+(29, 'MORLAIX\r\n'),
+(30, 'BRASPARTS\r\n'),
+(31, 'CARHAIX\r\n'),
+(32, 'GUERLESQUIN\r\n'),
+(33, 'HUELGOAT\r\n'),
+(34, 'ILE DE BATZ\r\n'),
+(35, 'LANDIVISIAU\r\n'),
+(36, 'LANMEUR\r\n'),
+(37, 'PLOUESCAT\r\n'),
+(38, 'PLOUGONVEN\r\n'),
+(39, 'SAINT THEGONNEC\r\n'),
+(40, 'SAINT POL DE LEON\r\n'),
+(41, 'SIZUN\r\n'),
+(42, 'CHATEAUNEUF DU FAOU\r\n'),
+(43, 'PLEYBEN\r\n'),
+(44, 'SAINT GOAZEC\r\n'),
+(45, 'SPEZET\r\n'),
+(46, 'QUIMPER\r\n'),
+(47, 'BENODET\r\n'),
+(48, 'BRIEC DE L\'ODET\r\n'),
+(49, 'AUDIERNE\r\n'),
+(50, 'PONT-CROIX\r\n'),
+(51, 'CAP SIZUN - ILE DE SEIN\r\n'),
+(52, 'DOUARNENEZ\r\n'),
+(53, 'FOUESNANT\r\n'),
+(54, 'LE GUILVINEC\r\n'),
+(55, 'LOCTUDY\r\n'),
+(56, 'PENMARC\'H\r\n'),
+(57, 'PLOBANNALEC\r\n'),
+(58, 'PLOMEUR\r\n'),
+(59, 'PLONEOUR LANVERN\r\n'),
+(60, 'PLOZEVET\r\n'),
+(61, 'PONT L\'ABBE'),
+(62, 'POULDREUZIC'),
+(63, 'TREGOUREZ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `exercer`
+--
+
+CREATE TABLE `exercer` (
+  `SP_MATRICULE` varchar(7) NOT NULL,
+  `FCT_ID` char(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fonction`
+--
+
+CREATE TABLE `fonction` (
+  `FCT_ID` char(15) NOT NULL,
+  `FCT_LIBELLE` varchar(60) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `fonction`
+--
+
+INSERT INTO `fonction` (`FCT_ID`, `FCT_LIBELLE`) VALUES
+('1', 'Sapeur Pompier'),
+('2', 'Centre de Traitement de l\'Alerte '),
+('3', 'Service Formation (Personnel administratif)'),
+('4', 'Centre Opérationnel Départemental d\'Incendie et de Secours');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formation`
+--
+
+CREATE TABLE `formation` (
+  `FOR_ID` varchar(32) NOT NULL,
+  `FCT_ID` char(15) NOT NULL,
+  `FOR_LIBELLE` varchar(32) NOT NULL,
+  `FOR_DTE_DEBUT` date NOT NULL,
+  `FOR_DTE_FIN` date NOT NULL,
+  `FOR_CAPACITE` smallint(6) NOT NULL,
+  `FOR_SALLE` varchar(32) NOT NULL,
+  `FOR_ADRESSE` varchar(120) NOT NULL,
+  `FOR_CP` varchar(5) NOT NULL,
+  `FOR_VILLE` varchar(60) NOT NULL,
+  `FOR_DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `grade`
+--
+
+CREATE TABLE `grade` (
+  `GRA_ID` char(3) NOT NULL,
+  `GRA_LIBELLE` varchar(32) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `grade`
+--
+
+INSERT INTO `grade` (`GRA_ID`, `GRA_LIBELLE`) VALUES
+('11', 'Commandant\n'),
+('10', 'Capitaine\n'),
+('09', 'Lieutenant\n'),
+('08', 'Adjudant-Chef\n'),
+('07', 'Adjudant\n'),
+('06', 'Sergent-Chef\n'),
+('05', 'Sergent\n'),
+('04', 'Caporal-Chef\n'),
+('03', 'Caporal\n'),
+('02', 'Sapeur 1?re classe\n'),
+('01', 'Sapeur 2?me classe\n'),
+('00', 'Auxiliaire\n'),
+('12', 'Lieutenant-colonel\n'),
+('13', 'Colonel\n'),
+('14', 'Contr?leur general\n');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inscrire`
+--
+
+CREATE TABLE `inscrire` (
+  `SP_MATRICULE` varchar(7) NOT NULL,
+  `FOR_ID` varchar(32) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `login`
+--
+
+CREATE TABLE `login` (
+  `LOG_LOGIN` varchar(32) NOT NULL,
+  `SP_MATRICULE` varchar(7) NOT NULL,
+  `LOG_MDP` varchar(32) NOT NULL,
+  `LOG_NOM` varchar(60) NOT NULL,
+  `LOG_PRENOM` varchar(60) NOT NULL,
+  `LOG_PROFIL` varchar(3) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `login`
+--
+
+INSERT INTO `login` (`LOG_LOGIN`, `SP_MATRICULE`, `LOG_MDP`, `LOG_NOM`, `LOG_PRENOM`, `LOG_PROFIL`) VALUES
+('Dos santos', '192', 'ghuwrnpg', 'Dos santos', 'Zacharis', ''),
+('Lefevre', '046', 'ubavive', 'Lefevre', 'Lana', ''),
+('Gerard', '045', 'eppoddoffy', 'Gerard', 'Lily', ''),
+('Andre', '044', 'efejyfyp', 'Andre', 'M?lissa', ''),
+('Sanchez', '043', 'ezovinap\r\n', 'Sanchez', 'Jeanne', ''),
+('Girard', '042', 'ucexacuz', 'Girard', 'Lina', ''),
+('Masson', '041', 'ummollifere', 'Masson', 'Lou', ''),
+('Morel', '040', 'uwenneno', 'Morel', 'Laura', ''),
+('Robin', '039', 'uduhipitte', 'Robin', 'Charlotte', ''),
+('Fournier', '038', 'yzitymami', 'Fournier', 'No?mie', ''),
+('Chevalier', '037', 'ekyddynniqa', 'Chevalier', 'Alice', ''),
+('Vincent', '036', 'ynewerux', 'Vincent', 'Ma?va', ''),
+('Fontaine', '035', 'imutelut', 'Fontaine', 'Pauline', ''),
+('Roux', '034', 'oppuseliv', 'Roux', 'C?lia', ''),
+('Lopez', '033', 'ybelepif', 'Lopez', '?lisa', ''),
+('Bertrand', '032', 'ekahammy', 'Bertrand', 'Justine', ''),
+('Dumont', '031', 'ebemaffarr', 'Dumont', 'Louna', ''),
+('David', '030', 'ezycoru', 'David', '?milie', ''),
+('Iroise29', '12345', 'test', 'test', 'test', 'tes'),
+('Gauthier', '029', 'uwosadome', 'Gauthier', 'Cl?mence', ''),
+('Garcia\n', '028', 'udennukena \n', 'Garcia\n', 'Maelys\n', ''),
+('Clement\n', '027', 'eppodilloba \n', 'Clement\n', 'Zo?\n', ''),
+('Michel\n', '026', 'awimager \n', 'Michel\n', 'Mathilde\n', ''),
+('Mathieu\n', '025', 'yllupissit \n', 'Mathieu\n', 'Louise\n', ''),
+('Lefebvre\n', '024', 'uvatineppu \n', 'Lefebvre\n', 'Lisa\n', ''),
+('Morin\n', '023', 'iwylutte \n', 'Morin\n', 'Ma?wenn\n', ''),
+('Laurent\n', '022', 'odabitaf \n', 'Laurent\n', 'Julie\n', ''),
+('Perrin\n', '021', 'ymunidanne \n', 'Perrin\n', 'In?s\n', ''),
+('Simon\n', '020', 'ojygummal \n', 'Simon\n', 'Oc?ane\n', ''),
+('Nicolas\n', '019', 'erazusi \n', 'Nicolas\n', 'Lilou\n', ''),
+('Moreau\n', '018', 'olenuxo \n', 'Moreau\n', 'Ambre\n', ''),
+('Roussel\n', '017', 'essubape \n', 'Roussel\n', 'Agathe\n', ''),
+('Leroy\n', '016', 'uppaffeqonn \n', 'Leroy\n', 'Manon\n', ''),
+('Henry\n', '015', 'eleffuffem \n', 'Henry\n', 'Emma\n', ''),
+('Durand\n', '014', 'ijamado \n', 'Durand\n', 'Romane\n', ''),
+('Muller\n', '013', 'ysizammo \n', 'Muller\n', 'Jade\n', ''),
+('Petit\n', '012', 'isovilluq \n', 'Petit\n', 'Sarah\n', ''),
+('Guerin\n', '011', 'unnevaxuqi \n', 'Guerin\n', 'Lucie\n', ''),
+('Richard\n', '010', 'owattymmif \n', 'Richard\n', 'Juliette\n', ''),
+('Blanc\n', '009', 'aceppeca \n', 'Blanc\n', 'Clara\n', ''),
+('Robert\n', '008', 'elajuvasse \n', 'Robert\n', 'Chlo?\n', ''),
+('Rousseau\n', '007', 'epiwappeffo \n', 'Rousseau\n', 'L?a\n', ''),
+('Thomas\n', '006', 'emmezassov \n', 'Thomas\n', 'Marie\n', ''),
+('Faure\n', '005', 'innimucurra \n', 'Faure\n', 'Lola\n', ''),
+('Dubois\n', '004', 'oloworo \n', 'Dubois\n', 'Eva\n', ''),
+('Garnier\n', '003', 'evypuwull\n', 'Garnier\n', 'Ana?s\n', ''),
+('Bernard\n', '002', 'aqicanneffo\n', 'Bernard\n', 'Kimberley\n', ''),
+('Martin\n', '000', 'amoquddus \n', 'Martin\n', 'Ana?l\n', ''),
+('Legrand\n', '001', 'urubucass \n', 'Legrand\n', 'Maryam\n', ''),
+('Besson\n', '191', 'znecqtfh\n', 'Besson\n', 'C?dric\n', ''),
+('Hamon\n', '190', 'vdtqspgm\n', 'Hamon\n', 'Gr?gory\n', ''),
+('Jacques\n', '189', 'inrmidur\n', 'Jacques\n', '?mile\n', ''),
+('Perrier\n', '188', 'racgnepf\n', 'Perrier\n', 'Aaron\n', ''),
+('Rossi\n', '187', 'ojgenvjk\n', 'Rossi\n', 'Gaspard\n', ''),
+('Gon?alves\n', '186', 'qtbcnyma\n', 'Gon?alves\n', 'Marwane\n', ''),
+('Joubert\n', '185', 'brsqovzh\n', 'Joubert\n', 'Colin\n', ''),
+('Alexandre\n', '184', 'fojhzbrp\n', 'Alexandre\n', 'Gilbert\n', ''),
+('Dupond\n', '183', 'vaetsium\n', 'Dupond\n', 'Yohan\n', ''),
+('Leblanc\n', '182', 'vizuajii\n', 'Leblanc\n', 'Rom?o\n', ''),
+('Marion\n', '181', 'putizmlj\n', 'Marion\n', 'F?lix\n', ''),
+('Bertin\n', '180', 'ntcevwom\n', 'Bertin\n', 'Timoth?e\n', ''),
+('Levy\n', '179', 'gfqueldx\n', 'Levy\n', 'Bruno\n', ''),
+('Lesage\n', '178', 'dyllahuu\n', 'Lesage\n', 'Renaud\n', ''),
+('Mallet\n', '177', 'webinldo\n', 'Mallet\n', 'L?on\n', ''),
+('Cousin\n', '176', 'zrjjeuaw\n', 'Cousin\n', 'Davy\n', ''),
+('Chevallier\n', '175', 'ucyvpvdp\n', 'Chevallier\n', '?louan\n', ''),
+('Marty\n', '174', 'iybkkyrm\n', 'Marty\n', 'Malo\n', ''),
+('Gay\n', '173', 'ywqocnmx\n', 'Gay\n', 'L?onard\n', ''),
+('Barre\n', '172', 'hazisfby\n', 'Barre\n', 'Guillaume\n', ''),
+('Marechal\n', '171', 'glypwfog\n', 'Marechal\n', 'Amine\n', ''),
+('Guyot\n', '170', 'zzgvuzpm\n', 'Guyot\n', 'Martin\n', ''),
+('Gomez\n', '169', 'cokpjolg\n', 'Gomez\n', 'Lilian\n', ''),
+('Perrot\n', '168', 'dwmuvicw\n', 'Perrot\n', 'Killian\n', ''),
+('Weber\n', '167', 'sjvckrec\n', 'Weber\n', 'Kilian\n', ''),
+('Schneider\n', '166', 'rbbhzvsj\n', 'Schneider\n', 'Bastien\n', ''),
+('Millet\n', '165', 'dulunsdw\n', 'Millet\n', 'Robin\n', ''),
+('Remy\n', '164', 'twzikhcq\n', 'Remy\n', 'Titouan\n', ''),
+('Klein\n', '163', 'hdrfewco\n', 'Klein\n', 'Simon\n', ''),
+('Breton\n', '162', 'thpptahy\n', 'Breton\n', 'R?mi\n', ''),
+('Germain\n', '161', 'okwqpkrz\n', 'Germain\n', 'No?\n', ''),
+('Carre\n', '160', 'pzyuktcb\n', 'Carre\n', 'Mehdi\n', ''),
+('Jacob\n', '159', 'sdontbtr\n', 'Jacob\n', 'Kylian\n', ''),
+('Laine\n', '158', 'iyrzqqxu\n', 'Laine\n', 'Eric\n', ''),
+('Pons\n', '154', 'ciwcdpzx\n', 'Pons\n', 'Thibault\n', ''),
+('Albert\n', '155', 'uxevcqya\n', 'Albert\n', 'Adrien\n', ''),
+('Paul\n', '156', 'hdcjbgfo\n', 'Paul\n', 'Benjamin\n', ''),
+('Ferreira\n', '157', 'zygobkmo\n', 'Ferreira\n', 'Corentin\n', ''),
+('Leveque\n', '153', 'ceiafaav\n', 'Leveque\n', 'Florian\n', ''),
+('Dupuy\n', '152', 'wvsjoaje\n', 'Dupuy\n', 'Samuel\n', ''),
+('Bouvier\n', '151', 'obeylxcn\n', 'Bouvier\n', 'Kyllian\n', ''),
+('Baron\n', '150', 'zizvwrcm\n', 'Baron\n', 'Diego\n', ''),
+('Gillet\n', '149', 'jlxwbboe\n', 'Gillet\n', 'Dorian\n', ''),
+('Nguyen\n', '047', 'alligahi \n', 'Nguyen\n', 'Lena\n', ''),
+('Mercier\n', '048', 'ommaffuwy \n', 'Mercier\n', 'Solene\n', ''),
+('Boyer\n', '049', 'izuhelli \n', 'Boyer\n', 'Marion\n', ''),
+('Dupont\n', '050', 'ozujage \n', 'Dupont\n', 'Anna\n', ''),
+('Lambert\n', '051', 'ybidafenn \n', 'Lambert\n', 'L?onie\n', ''),
+('Lemaire\n', '052', 'iwohimmoli \n', 'Lemaire\n', 'M?lanie\n', ''),
+('Bonnet\n', '053', 'onecacyne \n', 'Bonnet\n', 'Nina\n', ''),
+('Duval\n', '054', 'uzammaga \n', 'Duval\n', 'Margot\n', ''),
+('Francois\n', '055', 'ippafippe \n', 'Francois\n', 'Ma?lle\n', ''),
+('Joly\n', '056', 'obelyfo \n', 'Joly\n', 'Alexia\n', ''),
+('Martinez\n', '057', 'alledaza \n', 'Martinez\n', 'Alicia\n', ''),
+('Roger\n', '058', 'ejutemmuppo \n', 'Roger\n', 'Marine\n', ''),
+('Bourgeois\n', '059', 'ahumewe \n', 'Bourgeois\n', 'Valentine\n', ''),
+('Roche\n', '060', 'ulutissetta \n', 'Roche\n', 'Candice\n', ''),
+('Renaud\n', '061', 'ojebijinn \n', 'Renaud\n', 'Loane\n', ''),
+('Roy\n', '062', 'effonorre \n', 'Roy\n', 'Margaux\n', ''),
+('Lemoine\n', '063', 'annerroddo \n', 'Lemoine\n', '?lo?se\n', ''),
+('Noel\n', '064', 'ezilody \n', 'Noel\n', '?l?na\n', ''),
+('Picard\n', '065', 'itteffikuppy \n', 'Picard\n', 'Fanny\n', ''),
+('Meyer\n', '066', 'effetuxeh \n', 'Meyer\n', 'Julia\n', ''),
+('Gaillard\n', '067', 'arrepassas \n', 'Gaillard\n', 'Amandine\n', ''),
+('Lucas\n', '068', 'aroxecette \n', 'Lucas\n', 'Clo?\n', ''),
+('Philippe\n', '069', 'ulofafo \n', 'Philippe\n', 'Elsa\n', ''),
+('Meunier\n', '070', 'obamassita \n', 'Meunier\n', 'Carla\n', ''),
+('Leclercq\n', '071', 'ixaxannev \n', 'Leclercq\n', 'L?ane\n', ''),
+('Jean\n', '072', 'otammesisi \n', 'Jean\n', 'Capucine\n', ''),
+('Lacroix\n', '073', 'anegeddem \n', 'Lacroix\n', 'Yasmine\n', ''),
+('Perez\n', '074', 'urupaca \n', 'Perez\n', 'Angelina\n', ''),
+('Fabre\n', '075', 'ululluny \n', 'Fabre\n', 'Am?lie\n', ''),
+('Marchand\n', '076', 'uselannepe \n', 'Marchand\n', '?lise\n', ''),
+('Dupuis\n', '077', 'ussugeddod \n', 'Dupuis\n', 'Salom?\n', ''),
+('Dufour\n', '078', 'ogabapu \n', 'Dufour\n', 'Sara\n', ''),
+('Olivier\n', '079', 'ehucykeke \n', 'Olivier\n', 'Jasmine\n', ''),
+('Blanchard\n', '080', 'oddekima \n', 'Blanchard\n', 'Ma?l?\n', ''),
+('Rodriguez\n', '081', 'inneddyduca \n', 'Rodriguez\n', 'Lauriane\n', ''),
+('Marie\n', '082', 'erroffaruco \n', 'Marie\n', 'Katell\n', ''),
+('Da silva\n', '083', 'ecattove \n', 'Da silva\n', 'Rosalie\n', ''),
+('Barbier\n', '084', 'upysela \n', 'Barbier\n', 'Guillemette\n', ''),
+('Hubert\n', '085', 'ebaquwe \n', 'Hubert\n', 'Catherine\n', ''),
+('Brun\n', '086', 'eqafillamm \n', 'Brun\n', 'Lamia\n', ''),
+('Louis\n', '087', 'emmirrappuru \n', 'Louis\n', 'Edwige\n', ''),
+('Dumas\n', '088', 'ofinnita \n', 'Dumas\n', 'Tatiana\n', ''),
+('Charles\n', '089', 'ezebaddafa \n', 'Charles\n', 'Clotilde\n', ''),
+('Brunet\n', '090', 'ithwzfcs\n', 'Brunet\n', 'Fran?oise\n', ''),
+('Guillot\n', '091', 'qojcfbnn\n', 'Guillot\n', 'Y?na\n', ''),
+('Schmitt\n', '092', 'jwnleumn\n', 'Schmitt\n', 'Lut?cia\n', ''),
+('Riviere\n', '093', 'ctdnnlpc\n', 'Riviere\n', 'Alexandra\n', ''),
+('Leroux\n', '094', 'cqpngijt\n', 'Leroux\n', 'Syrine\n', ''),
+('Le gall\n', '095', 'tekmpmkc\n', 'Le gall\n', 'Nathalie\n', ''),
+('Colin\n', '096', 'talqjtvp\n', 'Colin\n', 'Rose\n', ''),
+('Guillaume\n', '097', 'wfjcuqfm\n', 'Guillaume\n', 'H?l?ne\n', ''),
+('Fernandez\n', '098', 'fstxfzvi\n', 'Fernandez\n', 'Claudie\n', ''),
+('Adam\n', '099', 'ojpkooot\n', 'Adam\n', 'Val?rie\n', ''),
+('Pierre\n', '100', 'irqvsidi\n', 'Pierre\n', 'Lucas\n', ''),
+('Rey\n', '101', 'ckfjvswh\n', 'Rey\n', 'Matt?o\n', ''),
+('Renard\n', '102', 'rezjwbnv\n', 'Renard\n', 'L?o\n', ''),
+('Moulin\n', '103', 'ezgyumzg\n', 'Moulin\n', 'Evan\n', ''),
+('Arnaud\n', '104', 'hpuvmtgt\n', 'Arnaud\n', 'Louis\n', ''),
+('Gonzalez\n', '105', 'sjcwelsx\n', 'Gonzalez\n', 'Tom\n', ''),
+('Rolland\n', '106', 'ularvcqu\n', 'Rolland\n', 'Maxime\n', ''),
+('Berger\n', '107', 'phzvqhki\n', 'Berger\n', 'Arthur\n', ''),
+('Caron\n', '108', 'gnobozgx\n', 'Caron\n', 'Thomas\n', ''),
+('Lecomte\n', '109', 'fawfihds\n', 'Lecomte\n', 'Yanis\n', ''),
+('Aubert\n', '110', 'ncerenne\n', 'Aubert\n', 'Alexandre\n', ''),
+('Menard\n', '111', 'dmfjmbft\n', 'Menard\n', 'Th?o\n', ''),
+('Giraud\n', '112', 'uihvbcwh\n', 'Giraud\n', 'Hugo\n', ''),
+('Fleury\n', '113', 'mbmmfrqe\n', 'Fleury\n', 'Enzo\n', ''),
+('Leclerc\n', '114', 'likwpvui\n', 'Leclerc\n', 'Nathan\n', ''),
+('Deschamps\n', '115', 'cfqwydri\n', 'Deschamps\n', 'Antoine\n', ''),
+('Vidal\n', '116', 'vjqkrwgf\n', 'Vidal\n', 'Gabriel\n', ''),
+('Carpentier\n', '117', 'cxxkqxkv\n', 'Carpentier\n', 'Cl?ment\n', ''),
+('Julien\n', '118', 'rggdkrsj\n', 'Julien\n', 'Florentin\n', ''),
+('Le goff\n', '119', 'ludyfwvu\n', 'Le goff\n', 'Jules\n', ''),
+('Benoit\n', '120', 'cpouyjah\n', 'Benoit\n', 'Baptiste\n', ''),
+('Boucher\n', '121', 'mfaipixy\n', 'Boucher\n', 'Paul\n', ''),
+('Paris\n', '122', 'dzedrlci\n', 'Paris\n', 'Alexis\n', ''),
+('Bailly\n', '123', 'noyorqoa\n', 'Bailly\n', 'Noah\n', ''),
+('Maillard\n', '124', 'yxmafipm\n', 'Maillard\n', 'Mathis\n', ''),
+('Boulanger\n', '125', 'ddohcymm\n', 'Boulanger\n', 'Ethan\n', ''),
+('Marchal\n', '126', 'meahcmbz\n', 'Marchal\n', 'Quentin\n', ''),
+('Collin\n', '127', 'irxiayxs\n', 'Collin\n', 'Maxence\n', ''),
+('Aubry\n', '128', 'qrsaytpz\n', 'Aubry\n', 'Pierre\n', ''),
+('Herve\n', '129', 'bemhebcc\n', 'Herve\n', 'Valentin\n', ''),
+('Vasseur\n', '130', 'qlleiqpv\n', 'Vasseur\n', 'Julien\n', ''),
+('Evrard\n', '131', 'dhfbryew\n', 'Evrard\n', 'Romain\n', ''),
+('Le roux\n', '132', 'buimoxtd\n', 'Le roux\n', 'Adam\n', ''),
+('Poulain\n', '133', 'qjiigchq\n', 'Poulain\n', 'Victor\n', ''),
+('Renault\n', '134', 'dpbxkbbi\n', 'Renault\n', 'Mohamed\n', ''),
+('Etienne\n', '135', 'dmtteixt\n', 'Etienne\n', 'Nicolas\n', ''),
+('Jacquet\n', '136', 'sgqfrjyh\n', 'Jacquet\n', 'Nolan\n', ''),
+('Lebrun\n', '137', 'gyccowcf\n', 'Lebrun\n', 'Tim?o\n', ''),
+('Collet\n', '138', 'wkelgblm\n', 'Collet\n', 'Mathieu\n', ''),
+('Daniel\n', '139', 'dcjbyopt\n', 'Daniel\n', 'Tristan\n', ''),
+('Prevost\n', '140', 'ecjofezv\n', 'Prevost\n', 'Anthony\n', ''),
+('Pereira\n', '141', 'cmmzhdeg\n', 'Pereira\n', 'Antonin\n', ''),
+('Poirier\n', '142', 'fsxpymjr\n', 'Poirier\n', 'Lorenzo\n', ''),
+('Pasquier\n', '143', 'ikvlmnvd\n', 'Pasquier\n', 'Gabin\n', ''),
+('Charpentier\n', '144', 'qeaulnul\n', 'Charpentier\n', 'J?r?my\n', ''),
+('Cordier\n', '145', 'szldskts\n', 'Cordier\n', 'Dylan\n', ''),
+('Royer\n', '146', 'bmisuthr\n', 'Royer\n', 'Kevin\n', ''),
+('Humbert\n', '147', 'cjlbmymj\n', 'Humbert\n', 'Constant\n', ''),
+('Huet\n', '148', 'itmucsyw\n', 'Huet\n', 'Esteban\n', ''),
+('Legros\n', '193', 'vxgyhwff\n', 'Legros\n', 'Amaury\n', ''),
+('Rodrigues\n', '194', 'nyeijwor\n', 'Rodrigues\n', 'Fabrice\n', ''),
+('Guichard\n', '195', 'xjfvkdtq\n', 'Guichard\n', 'David\n', ''),
+('Pelletier\n', '196', 'cgqgfwxk\n', 'Pelletier\n', 'Jordan\n', ''),
+('Fernandes\n', '197', 'ssvuwjvv\n', 'Fernandes\n', 'Rayane\n', ''),
+('Bouchet\n', '198', 'hbrxrldj\n', 'Bouchet\n', 'Alban\n', ''),
+('Carlier\n', '199', 'tebjejkr\n', 'Carlier\n', 'Dimitri', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pompier`
+--
+
+CREATE TABLE `pompier` (
+  `SP_MATRICULE` varchar(7) NOT NULL,
+  `GRA_ID` char(3) NOT NULL,
+  `SP_NOM` varchar(60) NOT NULL,
+  `SP_PRENOM` varchar(60) NOT NULL,
+  `SP_DTE_NAISSANCE` date NOT NULL,
+  `SP_TEL_FIXE` varchar(10) NOT NULL,
+  `SP_TEL_PORTABLE` varchar(10) NOT NULL,
+  `SP_BIP` varchar(8) NOT NULL,
+  `SP_STATUT` varchar(15) NOT NULL,
+  `SP_DTE_MAJ` date NOT NULL,
+  `DATE_PROMOTION` date NOT NULL,
+  `DATE_AFFECTATION` date NOT NULL,
+  `CIS_ID` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `pompier`
+--
+
+INSERT INTO `pompier` (`SP_MATRICULE`, `GRA_ID`, `SP_NOM`, `SP_PRENOM`, `SP_DTE_NAISSANCE`, `SP_TEL_FIXE`, `SP_TEL_PORTABLE`, `SP_BIP`, `SP_STATUT`, `SP_DTE_MAJ`, `DATE_PROMOTION`, `DATE_AFFECTATION`, `CIS_ID`) VALUES
+('000', '1', 'Martin', 'Ana?l', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('001', '1', 'Legrand', 'Maryam', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('002', '1', 'Bernard', 'Kimberley', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('003', '1', 'Garnier', 'Ana?s', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('004', '1', 'Dubois', 'Eva', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('005', '1', 'Faure', 'Lola', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('006', '1', 'Thomas', 'Marie', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('007', '1', 'Rousseau', 'L?a', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('008', '1', 'Robert', 'Chlo?', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('009', '1', 'Blanc', 'Clara', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('010', '1', 'Richard', 'Juliette', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('011', '1', 'Guerin', 'Lucie', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('012', '1', 'Petit', 'Sarah', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('013', '1', 'Muller', 'Jade', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('014', '1', 'Durand', 'Romane', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('015', '1', 'Henry', 'Emma', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('016', '1', 'Leroy', 'Manon', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('017', '1', 'Roussel', 'Agathe', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('018', '1', 'Moreau', 'Ambre', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('019', '1', 'Nicolas', 'Lilou', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('020', '1', 'Simon', 'Oc?ane', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('021', '1', 'Perrin', 'In?s', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('022', '1', 'Laurent', 'Julie', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('023', '1', 'Morin', 'Ma?wenn', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('024', '1', 'Lefebvre', 'Lisa', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('025', '1', 'Mathieu', 'Louise', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('026', '1', 'Michel', 'Mathilde', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('027', '1', 'Clement', 'Zo?', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('028', '1', 'Garcia', 'Maelys\r\n', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('029', '1', 'Gauthier', 'Cl?mence', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('030', '1', 'David', '?milie', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('031', '1', 'Dumont\r\n', 'Louna', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('032', '1', 'Bertrand\r\n', 'Justine\r\n', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('033', '1', 'Lopez', '?lisa', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('034', '1', 'Roux', 'C?lia\r\n', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('035', '1', 'Fontaine\r\n', 'Pauline\r\n', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('036', '1', 'Vincent\r\n', 'Ma?va\r\n', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('037', '1', 'Chevalier\r\n', 'Alice\r\n', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('038', '1', 'Fournier', 'No?mie\r\n', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('039', '1', 'Robin', 'Charlotte\r\n', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('040', '1', 'Morel', 'Laura\r\n', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('041', '1', 'Masson', 'Lou', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('042', '1', 'Girard', 'Lina', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('043', '1', 'Sanchez', 'Jeanne\r\n', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('044', '1', 'Andre', 'M?lissa\r\n', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('045', '1', 'Gerard\r\n', 'Lily\r\n', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('046', '1', 'Lefevre', 'Lana\r\n', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('047', '1', 'Nguyen', 'Lena', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('048', '1', 'Mercier', 'Solene\r\n', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('049', '1', 'Boyer\r\n', 'Marion\r\n', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('050', '1', 'Dupont', 'Anna', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('051', '1', 'Lambert\r\n', 'L?onie', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('052', '1', 'Lemaire', 'M?lanie', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('053', '1', 'Bonnet', 'Nina', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('054', '1', 'Duval', 'Margot', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('055', '1', 'Francois\r\n', 'Ma?lle\r\n', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('056', '1', 'Joly', 'Alexia\r\n', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('057', '1', 'Martinez', 'Alicia', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('058', '1', 'Roger\r\n', 'Marine\r\n', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('059', '1', 'Bourgeois\r\n', 'Valentine\r\n', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('060', '1', 'Roche', 'Candice\r\n', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('061', '1', 'Renaud\r\n', 'Loane\r\n', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('062', '1', 'Roy\r\n', 'Margaux\r\n', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('063', '1', 'Lemoine\r\n', '?lo?se\r\n', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('064', '1', 'Noel', '?l?na', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('065', '1', 'Picard', 'Fanny', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('066', '1', 'Meyer', 'Julia', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('067', '1', 'Gaillard', 'Amandine', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('068', '1', 'Lucas', 'Clo?', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('069', '1', 'Philippe', 'Elsa\r\n', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('070', '1', 'Meunier', 'Carla', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('071', '1', 'Leclercq', 'L?ane\r\n', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('072', '1', 'Jean', 'Capucine\r\n', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('073', '1', 'Lacroix\r\n', 'Yasmine\r\n', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('074', '1', 'Perez', 'Angelina', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('075', '1', 'Fabre', 'Am?lie', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('076', '1', 'Marchand', '?lise\r\n', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('077', '1', 'Dupuis', 'Salom?', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('078', '1', 'Dufour', 'Sara', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('079', '1', 'Olivier', 'Jasmine\r\n', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('080', '1', 'Blanchard', 'Ma?l?\r\n', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('081', '1', 'Rodriguez', 'Lauriane\r\n', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('082', '1', 'Marie', 'Katell', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('083', '1', 'Da silva\r\n', 'Rosalie', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('084', '1', 'Barbier', 'Guillemette', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('085', '1', 'Hubert', 'Catherine\r\n', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('086', '1', 'Brun\r\n', 'Lamia\r\n', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('087', '1', 'Louis\r\n', 'Edwige', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('088', '1', 'Dumas', 'Tatiana\r\n', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('089', '1', 'Charles', 'Clotilde', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('090', '1', 'Brunet', 'Fran?oise\r\n', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('091', '1', 'Guillot', 'Y?na\r\n', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('092', '1', 'Schmitt', 'Lut?cia', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('093', '1', 'Riviere', 'Alexandra', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('094', '1', 'Leroux', 'Syrine', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('095', '1', 'Le gall', 'Nathalie', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('096', '1', 'Colin', 'Rose\r\n', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('097', '1', 'Guillaume', 'H?l?ne', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('098', '1', 'Fernandez', 'Claudie', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('099', '1', 'Adam', 'Val?rie', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('100', '1', 'Pierre', 'Lucas', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('101', '1', 'Rey', 'Matt?o', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('102', '1', 'Renard', 'L?o', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('103', '1', 'Moulin\r\n', 'Evan', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('104', '1', 'Arnaud', 'Louis', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('105', '1', 'Gonzalez', 'Tom', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('106', '1', 'Rolland', 'Maxime', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('107', '1', 'Berger', 'Arthur', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('108', '1', 'Caron', 'Thomas', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('109', '1', 'Lecomte', 'Yanis\r\n', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('110', '1', 'Aubert', 'Alexandre\r\n', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('111', '1', 'Menard', 'Th?o\r\n', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('112', '1', 'Giraud\r\n', 'Hugo', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('113', '1', 'Fleury', 'Enzo\r\n', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('114', '1', 'Leclerc', 'Nathan', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('115', '1', 'Deschamps', 'Antoine', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('116', '1', 'Vidal\r\n', 'Gabriel\r\n', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('117', '1', 'Carpentier', 'Cl?ment', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('118', '1', 'Julien', 'Florentin', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('119', '1', 'Le goff\r\n', 'Jules\r\n', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('120', '1', 'Benoit', 'Baptiste', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('121', '1', 'Boucher', 'Paul', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('122', '1', 'Paris', 'Alexis', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('123', '1', 'Bailly', 'Noah', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('124', '1', 'Maillard', 'Mathis', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('125', '1', 'Boulanger\r\n', 'Ethan', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('126', '1', 'Marchal', 'Quentin', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('127', '1', 'Collin', 'Maxence\r\n', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('128', '1', 'Aubry', 'Pierre', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('129', '1', 'Herve', 'Valentin', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('130', '1', 'Vasseur\r\n', 'Julien', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('131', '1', 'Evrard', 'Romain\r\n', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('132', '1', 'Le roux\r\n', 'Adam\r\n', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('133', '1', 'Poulain', 'Victor', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('134', '1', 'Renault', 'Mohamed\r\n', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('135', '1', 'Etienne\r\n', 'Nicolas', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('136', '1', 'Jacquet\r\n', 'Nolan', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('137', '1', 'Lebrun\r\n', 'Tim?o\r\n', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('138', '1', 'Collet', 'Mathieu', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('139', '1', 'Daniel\r\n', 'Tristan', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('140', '1', 'Prevost\r\n', 'Anthony', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('141', '1', 'Pereira\r\n', 'Antonin', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('142', '1', 'Poirier\r\n', 'Lorenzo', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('143', '1', 'Pasquier\r\n', 'Gabin', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('144', '1', 'Charpentier', 'J?r?my', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('145', '1', 'Cordier\r\n', 'Dylan', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('146', '1', 'Royer\r\n', 'Kevin', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('147', '1', 'Humbert', 'Constant', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('148', '1', 'Huet', 'Esteban', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('149', '1', 'Gillet', 'Dorian', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('150', '1', 'Baron', 'Diego', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('151', '1', 'Bouvier', 'Kyllian', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('152', '1', 'Dupuy', 'Samuel\r\n', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('153', '1', 'Leveque', 'Florian\r\n', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('154', '1', 'Pons', 'Thibault', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('155', '1', 'Albert', 'Adrien\r\n', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('156', '1', 'Paul\r\n', 'Benjamin', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('157', '1', 'Ferreira', 'Corentin', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('158', '1', 'Laine', 'Eric', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('159', '1', 'Jacob', 'Kylian', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('160', '1', 'Carre', 'Mehdi\r\n', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('161', '1', 'Germain', 'No?', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('162', '1', 'Breton', 'R?mi', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('163', '1', 'Klein', 'Simon', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('164', '1', 'Remy', 'Titouan', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('165', '1', 'Millet', 'Robin', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('166', '1', 'Schneider', 'Bastien', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('167', '1', 'Weber', 'Kilian', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('168', '1', 'Perrot', 'Killian', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('169', '1', 'Gomez', 'Lilian', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('170', '1', 'Guyot', 'Martin', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('171', '1', 'Marechal', 'Amine', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('172', '1', 'Barre', 'Guillaume', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('173', '1', 'Gay', 'L?onard', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('174', '1', 'Marty', 'Malo', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('175', '1', 'Chevallier', '?louan', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('176', '1', 'Cousin', 'Davy', '2001-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('177', '1', 'Mallet', 'L?on', '2002-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('178', '1', 'Lesage', 'Renaud', '2002-07-09', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('179', '1', 'Levy', 'Bruno', '1999-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('180', '1', 'Bertin', 'Timoth?e', '1999-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('181', '1', 'Marion', 'F?lix', '1999-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('182', '1', 'Leblanc', 'Rom?o', '1998-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('183', '1', 'Dupond', 'Yohan\r\n', '1998-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('184', '1', 'Alexandre', 'Gilbert', '1998-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('185', '1', 'Joubert', 'Colin', '1997-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('186', '1', 'Gon?alves', 'Marwane', '2003-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('187', '1', 'Rossi', 'Gaspard', '1994-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('188', '1', 'Perrier', 'Aaron', '1988-08-07', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('189', '1', 'Jacques', '?mile', '2011-06-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('190', '1', 'Hamon', 'Gr?gory', '2013-01-02', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('191', '1', 'Besson', 'C?dric', '2012-08-11', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('192', '1', 'Dos santos', 'Zacharis', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('193', '1', 'Legros', 'Amaury', '2002-07-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('194', '1', 'Rodrigues', 'Fabrice', '2001-08-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('195', '1', 'Guichard', 'David', '2002-06-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('196', '1', 'Pelletier', 'Jordan', '2002-12-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('197', '1', 'Fernandes', 'Rayane', '2001-01-31', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('198', '1', 'Bouchet', 'Alban', '2002-04-30', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('199', '1', 'Carlier', 'Dimitri', '2002-09-12', '0202020202', '0602020202', '1', 'statut', '2018-02-08', '0000-00-00', '0000-00-00', 1),
+('12345', '', '', '', '0000-00-00', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `valide`
+--
+
+CREATE TABLE `valide` (
+  `SP_MATRICULE` varchar(7) NOT NULL,
+  `FOR_ID` varchar(32) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `valide`
+--
+
+INSERT INTO `valide` (`SP_MATRICULE`, `FOR_ID`) VALUES
+('000', ''),
+('001', ''),
+('002', ''),
+('003', ''),
+('004', ''),
+('005', ''),
+('006', ''),
+('007', ''),
+('008', ''),
+('009', ''),
+('010', ''),
+('011', ''),
+('012', ''),
+('013', ''),
+('014', ''),
+('015', ''),
+('016', ''),
+('017', ''),
+('018', ''),
+('019', ''),
+('020', ''),
+('021', ''),
+('022', ''),
+('023', ''),
+('024', ''),
+('025', ''),
+('026', ''),
+('027', ''),
+('028', ''),
+('029', ''),
+('030', ''),
+('031', ''),
+('032', ''),
+('033', ''),
+('034', ''),
+('035', ''),
+('036', ''),
+('037', ''),
+('038', ''),
+('039', ''),
+('040', ''),
+('041', ''),
+('042', ''),
+('043', ''),
+('044', ''),
+('045', ''),
+('046', ''),
+('047', ''),
+('048', ''),
+('049', ''),
+('050', ''),
+('051', ''),
+('052', ''),
+('053', ''),
+('054', ''),
+('055', ''),
+('056', ''),
+('057', ''),
+('058', ''),
+('059', ''),
+('060', ''),
+('061', ''),
+('062', ''),
+('063', ''),
+('064', ''),
+('065', ''),
+('066', ''),
+('067', ''),
+('068', ''),
+('069', ''),
+('070', ''),
+('071', ''),
+('072', ''),
+('073', ''),
+('074', ''),
+('075', ''),
+('076', ''),
+('077', ''),
+('078', ''),
+('079', ''),
+('080', ''),
+('081', ''),
+('082', ''),
+('083', ''),
+('084', ''),
+('085', ''),
+('086', ''),
+('087', ''),
+('088', ''),
+('089', ''),
+('090', ''),
+('091', ''),
+('092', ''),
+('093', ''),
+('094', ''),
+('095', ''),
+('096', ''),
+('097', ''),
+('098', ''),
+('099', ''),
+('100', ''),
+('101', ''),
+('102', ''),
+('103', ''),
+('104', ''),
+('105', ''),
+('106', ''),
+('107', ''),
+('108', ''),
+('109', ''),
+('110', ''),
+('111', ''),
+('112', ''),
+('113', ''),
+('114', ''),
+('115', ''),
+('116', ''),
+('117', ''),
+('118', ''),
+('119', ''),
+('120', ''),
+('121', ''),
+('122', ''),
+('123', ''),
+('124', ''),
+('125', ''),
+('126', ''),
+('127', ''),
+('128', ''),
+('129', ''),
+('130', ''),
+('131', ''),
+('132', ''),
+('133', ''),
+('134', ''),
+('135', ''),
+('136', ''),
+('137', ''),
+('138', ''),
+('139', ''),
+('140', ''),
+('141', ''),
+('142', ''),
+('143', ''),
+('144', ''),
+('145', ''),
+('146', ''),
+('147', ''),
+('148', ''),
+('149', ''),
+('150', ''),
+('151', ''),
+('152', ''),
+('153', ''),
+('154', ''),
+('155', ''),
+('156', ''),
+('157', ''),
+('158', ''),
+('159', ''),
+('160', ''),
+('161', ''),
+('162', ''),
+('163', ''),
+('164', ''),
+('165', ''),
+('166', ''),
+('167', ''),
+('168', ''),
+('169', ''),
+('170', ''),
+('171', ''),
+('172', ''),
+('173', ''),
+('174', ''),
+('175', ''),
+('176', ''),
+('177', ''),
+('178', ''),
+('179', ''),
+('180', ''),
+('181', ''),
+('182', ''),
+('183', ''),
+('184', ''),
+('185', ''),
+('186', ''),
+('187', ''),
+('188', ''),
+('189', ''),
+('190', ''),
+('191', ''),
+('192', ''),
+('193', ''),
+('194', ''),
+('195', ''),
+('196', ''),
+('197', ''),
+('198', ''),
+('199', '');
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `caserne`
+--
+ALTER TABLE `caserne`
+  ADD PRIMARY KEY (`CIS_ID`);
+
+--
+-- Index pour la table `exercer`
+--
+ALTER TABLE `exercer`
+  ADD KEY `FK_SP_MATRICULE` (`SP_MATRICULE`);
+
+--
+-- Index pour la table `fonction`
+--
+ALTER TABLE `fonction`
+  ADD PRIMARY KEY (`FCT_ID`);
+
+--
+-- Index pour la table `formation`
+--
+ALTER TABLE `formation`
+  ADD PRIMARY KEY (`FOR_ID`);
+
+--
+-- Index pour la table `grade`
+--
+ALTER TABLE `grade`
+  ADD PRIMARY KEY (`GRA_ID`),
+  ADD KEY `GRAD_ID` (`GRA_ID`),
+  ADD KEY `GRAD_ID_2` (`GRA_ID`);
+
+--
+-- Index pour la table `inscrire`
+--
+ALTER TABLE `inscrire`
+  ADD KEY `FK_SP_MATRICULE` (`SP_MATRICULE`);
+
+--
+-- Index pour la table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`LOG_LOGIN`),
+  ADD KEY `FK_SP_MATRICULE` (`SP_MATRICULE`);
+
+--
+-- Index pour la table `pompier`
+--
+ALTER TABLE `pompier`
+  ADD PRIMARY KEY (`SP_MATRICULE`),
+  ADD KEY `FK_CIS_ID` (`CIS_ID`);
+
+--
+-- Index pour la table `valide`
+--
+ALTER TABLE `valide`
+  ADD KEY `FK_SP_MATRICULE` (`SP_MATRICULE`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `caserne`
+--
+ALTER TABLE `caserne`
+  MODIFY `CIS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

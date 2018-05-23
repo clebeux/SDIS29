@@ -1,0 +1,330 @@
+html {
+	 height: 100%;
+}
+
+body {
+	background: #000000 url(/images/main-bg.gif) repeat-x;
+	width: 100%;
+	height: 850px;
+}
+
+#nav {
+	clear: both;
+	display: block;
+	height: 43px;
+	width: 100%;
+	background-image: url(/images/nav-bg.gif);
+	background-repeat: repeat-x;
+}
+#nav ul li a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-decoration: none;	
+}
+#nav ul li a:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: #d34836;
+	text-decoration: none;	
+}
+
+#nav ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align:center;
+}
+
+.nlink, .nlinkend {
+	float:left;
+	width:auto;
+	list-style: none;
+	display:inline;
+	text-align:center;
+	padding-top: 15px;
+	padding-left: 17px;
+	padding-right: 17px;
+	height:28px;
+}
+.nlink{
+	background-image: url(/images/nav-line.gif);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+.nlinkend {
+	background-image: none;
+}
+
+
+
+
+.container {
+    margin: 0px auto;
+    text-align: left;
+    width: 1200px;
+    background-color:white;
+    height:100%;
+}
+.header{
+	margin: 0px auto;
+    	text-align: left;
+    	width: 1200px;
+    	background-color:black;
+   	height:72px;
+	top: 0px;
+}
+
+.separator {
+    border:         none;
+    border-left:    2px solid hsla(200, 10%, 50%,100);
+    height:         90%;	
+    width:          1px;    
+    display: inline-block;  
+}
+.information {
+    width: 100%;
+    height: 76%;
+    display: inline-block;
+    font-size: 20px;
+    background-color:white;
+
+
+	
+   
+}
+
+.info {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	align: left;	
+	float:left;
+	
+}
+
+.fonction {
+	width: 597px;
+    	height: 100%;
+    	display: inline-block;
+    	
+    	float: right;
+	
+}
+.informationforma {
+    width: 100%;
+    height: 76%;
+    display: inline-block;
+    font-size: 20px;
+    background-color:white;
+
+
+	
+   
+}
+.infogauche {
+	width: 36%;
+	height: 60%;
+	display: inline-block;
+		
+	float:left;
+	margin-left: 14%;
+	
+	
+}
+
+.infodroite {
+	width: 36%;
+    	height: 60%;
+    	display: inline-block;
+    	
+    	float: right: 14%;
+	margin-right: 14%;
+}
+.infocentre {
+	width: 45%;
+    	height: 100%;
+    	display: inline-block;
+    	text-align: center;
+    	margin-left :28%;
+	margin-right: 28%;
+}
+.informationliste {
+    width: 100%;
+    height: 76%;
+    display: inline-block;
+    font-size: 20px;
+    background-color:white;
+}
+.caserne {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	align: left;	
+	float:left;
+	text-align: center;
+	
+	
+}
+
+.personnes {
+	width: 96%;
+    	height: 80%;
+    	display: inline-block;
+	margin-left:2%;
+	margin-right:2%;
+	border-width:1px;
+ 	border-style:ridge;
+ 	border-color:black;
+    	
+    	
+}
+	
+.champ {
+
+	width: 36%;
+    	height: 80%;
+    	display: inline-block;
+    	float: left;
+	text-align:left;
+    	
+}
+.champ2 {
+
+	width: 35%;
+    	height: 80%;
+    	display: inline-block;
+	
+    	
+}	
+   
+
+.divbuton{
+	width: 72%;
+    	height: 60%;
+    	display: inline-block;
+    	margin-right: 14%;	
+	margin-left: 11%;
+	text-align: center;	
+}
+
+.buton {
+	border: 1px solid #ccc;
+	border-radius:8px;
+	height: 50px;
+line-height:35px;
+	width: 10em;
+	background-color: transparent;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+				
+	
+}
+.buton:hover {
+	border: 1px solid #ccc;
+	border-radius:8px;
+	height: 50px;
+	width: 10em;
+	background-color: transparent;
+	font-weight: bold;
+	font-size: 16px;
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	
+}
+.boutonbip {
+	border: 1px solid #ccc;
+	border-radius:8px;
+	
+	background-color: transparent;
+	font-weight: bold;	
+	height: 40px; 
+	line-height: 39px;
+
+
+
+
+	
+}
+.boutonbip:hover {
+	border-radius:8px;
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	border: 1px solid #ccc !important;
+	font-weight: bold;
+}
+
+.butonperso{
+	width: 72%;
+    	height: 60%;
+    	display: inline-block;
+    	margin-right: 14%;	
+	margin-left: 11%;
+	text-align: center;
+
+
+}
+.top {
+	display: table-cell;
+	text-align: left;
+	outline: none;
+	width: 1000px;
+	height: 75px;
+	margin-bottom: 1em;
+
+
+
+}
+.nom {
+	font-size: 2em;
+	font-family: Arial;
+	margin-top:0;
+
+	
+}
+
+
+
+
+.centre {
+	text-align:center;
+	width	 597px;
+    	height: 75px;
+	display: block;
+	
+}
+.footer {
+	width: 1200px;
+	height: 10%;
+	background: url(/images/footer-bg.gif) repeat-x;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+}
+
+.matricule {
+	margin-left: 40%;
+}
+
+input[type="text"] {
+
+	line-height: 1px;
+
+}
+.centrer {
+	position: sticky;
+	top:500px;
+}
+
+
+
+
+
+
+
+
+
+	

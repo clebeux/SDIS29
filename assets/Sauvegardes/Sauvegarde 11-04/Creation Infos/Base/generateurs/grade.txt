@@ -1,0 +1,44 @@
+Auxiliaire
+Sapeur 2ème classe
+Sapeur 1ère classe
+Caporal
+Caporal-Chef
+Sergent
+Sergent-Chef
+Adjudant
+Adjudant-Chef
+Lieutenant
+Capitaine
+Commandant
+Lieutenant-colonel
+Colonel
+Contrôleur general
+Controleur général (Responsabilité à l'état)
+Médecin aspirant
+Médecin lieutenant 
+Médecin capitaine
+Médecin commandant 
+Médecin Lieutenant-colonel
+Médecin colonel
+Pharmacien capitaine
+Pharmacien commandant 
+Pharmacien lieutenant-colonel
+Pharmacien colonel
+Vétérinaire capitaine
+Vétérinaire commandant
+Vétérinaire lieutenant-colonel
+Vétérinaire colonel
+Infirmier
+Infirmier principal
+Infirmier chef
+Cadre de santé 2ème classe
+Cadre de santé 1ère classe
+Cadre supérieur de santé
+Expert
+Expert SSSM
+Psychologue
+JSP 1
+JSP 2
+JSP 3
+JSP 4
+
